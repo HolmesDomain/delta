@@ -167,3 +167,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.\*
+
+.DS_Store
+*.lockb
+/llama-2-7b-chat
