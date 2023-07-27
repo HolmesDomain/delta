@@ -9,7 +9,5 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@llama-node/llama-cpp": "^0.1.6",
-    "llama-node": "^0.1.6"
   }
 }
