@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url  	= env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Dealer {
+  id        Int         @id @default(autoincrement())
+  name      String?
+  address   String?
+  ratings   Rating[]
+  sumAI     Summary?
+  rating    String?
+  yelpID    String?      @unique
+  updated   DateTime?    @updatedAt
+  active    Boolean     @default(true)
+}
+
+model Summary {
+  updated   DateTime    @updatedAt
+  summary   String
+  dealer    Dealer      @relation(fields: [dealerId], references: [id])
+  dealerId  Int         @unique
+}
+
+model Rating {
+  source     String
+  dealer     Dealer     @relation(fields: [dealerId], references: [id])
+  dealerId   Int        @unique
+  rating     String
+  updated    DateTime   @updatedAt
+}

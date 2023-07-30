@@ -1,5 +1,8 @@
 import https from 'https';
 import { createInterface } from 'readline';
+// import { main } from './prisma/config';
+
+// main();
 
 // let selection;
 
